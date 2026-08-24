@@ -1,0 +1,57 @@
+name: Check templates against schema
+
+# Validates every .evapipe/.evapt file in this repo by deserializing it with
+# evanalyzer's actual PipelineTemplate/ProjectTemplate types
+# (evanalyzer/evanalyzer's crates/cfg/examples/check_templates.rs) - the same
+# types and the same serde_json::from_str call the GUI/CLI use to load
+# templates. That's stronger than validating against
+# docs/pipeline_template.schema.json / docs/project_template.schema.json with
+# a generic JSON Schema validator: a `#[serde(alias = ...)]` or an enum's
+# tagging behavior can change what actually deserializes without necessarily
+# showing up as a schema-shape difference.
+#
+# This is the counterpart to evanalyzer/evanalyzer's own
+# .github/workflows/check-templates.yml, which runs the same check in the
+# other direction (that repo's CI pulls this repo's templates in). Having it
+# here too means a bad template is caught at PR time in this repo, instead of
+# only on the other repo's next scheduled run.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-templates:
+    runs-on: ubuntu-latest
+    container:
+      image: joda001/evanalyzer-toolchain:0.2.0
+      credentials:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    steps:
+      - name: Checkout templates
+        uses: actions/checkout@v4
+        with:
+          path: evanalyzer-templates
+
+      - name: Checkout evanalyzer (schema source)
+        uses: actions/checkout@v4
+        with:
+          repository: evanalyzer/evanalyzer
+          path: evanalyzer
+
+      - name: Trust the checked-out workspaces
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE/evanalyzer-templates"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE/evanalyzer"
+
+      - name: Cache Cargo registry & build artifacts
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: evanalyzer
+          key: linux-x86_64-check-templates
+
+      - name: Check every template against the current schema
+        run: |
+          cargo run --manifest-path evanalyzer/Cargo.toml \
+            -p evanalyzer_cfg --example check_templates -- evanalyzer-templates
