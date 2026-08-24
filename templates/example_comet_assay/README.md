@@ -1,1 +1,0 @@
-The fluorescent comet images were donated by Scott Floyd and Michael Pacold. The silver-stained comets were contributed by Jorge Ernesto González from the Centro de Protección e Higiene de Las Radiaciones (CPHR).
