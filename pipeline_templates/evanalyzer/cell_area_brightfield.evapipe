@@ -65,15 +65,6 @@
     {
       "enabled": true,
       "command": {
-        "type": "ROLLING_BALL",
-        "ballType": "BALL",
-        "preSmooth": true,
-        "radius": 4
-      }
-    },
-    {
-      "enabled": true,
-      "command": {
         "type": "THRESHOLD",
         "thresholds": [
           {
