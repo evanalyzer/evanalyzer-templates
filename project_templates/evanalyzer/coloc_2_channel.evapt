@@ -16,7 +16,8 @@
       "colocalization",
       "spots",
       "2-channel"
-    ]
+    ],
+    "appVersion": ""
   },
   "classification": {
     "classes": [
@@ -28,67 +29,67 @@
       },
       {
         "id": 4,
-        "color": "#3399FF",
+        "color": "#3399ff",
         "name": "dapi@nucleus",
         "notes": ""
       },
       {
         "id": 11,
-        "color": "#33FF99",
+        "color": "#33ff99",
         "name": "brightfield@cell-area",
         "notes": ""
       },
       {
         "id": 12,
-        "color": "#66FF33",
+        "color": "#66ff33",
         "name": "brightfield@cells",
         "notes": ""
       },
       {
         "id": 21,
-        "color": "#33CFFF",
+        "color": "#33cfff",
         "name": "ch1@spot",
         "notes": ""
       },
       {
         "id": 1,
-        "color": "#D2FF00",
+        "color": "#d2ff00",
         "name": "ch2@spot",
         "notes": ""
       },
       {
         "id": 13,
-        "color": "#33CFFF",
+        "color": "#33cfff",
         "name": "ch1@in-cell-spots",
         "notes": ""
       },
       {
         "id": 3,
-        "color": "#33CFFF",
+        "color": "#33cfff",
         "name": "ch2@in-cell-spots",
         "notes": ""
       },
       {
         "id": 8,
-        "color": "#9933FF",
+        "color": "#9933ff",
         "name": "ch1@ in-cell-spots coloc ",
         "notes": ""
       },
       {
         "id": 9,
-        "color": "#9933FF",
+        "color": "#9933ff",
         "name": "ch2@ in-cell-spots coloc ",
         "notes": ""
       },
       {
         "id": 18,
-        "color": "#9933FF",
+        "color": "#9933ff",
         "name": "ch1@ in-cell-spots non coloc",
         "notes": ""
       },
       {
         "id": 19,
-        "color": "#9933FF",
+        "color": "#9933ff",
         "name": "ch2@ in-cell-spots non coloc",
         "notes": ""
       }
@@ -134,6 +135,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "ROLLING_BALL",
@@ -143,6 +145,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -150,6 +153,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -157,6 +161,7 @@
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -168,34 +173,42 @@
                 "minThreshold": 200.0,
                 "maxThreshold": 65535.0,
                 "unit": "BIT",
-                "segmentationClass": 4
+                "segmentationClass": 4,
+                "valueSource": "ACTUAL_IMAGE"
               }
             ]
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
-            "type": "CONNECTED_COMPONENTS"
+            "type": "CONNECTED_COMPONENTS",
+            "minSize": 0
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "WATERSHED",
             "maximumFinderTolerance": 0.5,
             "smoothingSigma": 0.0,
-            "minObjectSize": 0
+            "minObjectSize": 0,
+            "seedSource": "DISTANCE_MAP"
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -222,7 +235,8 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         }
       ]
@@ -237,6 +251,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "EDGE_DETECTION_SOBEL",
@@ -244,6 +259,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -251,6 +267,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -258,6 +275,7 @@
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -265,6 +283,7 @@
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -272,6 +291,7 @@
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -279,6 +299,7 @@
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -286,6 +307,7 @@
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -297,25 +319,31 @@
                 "minThreshold": 0.0,
                 "maxThreshold": 65535.0,
                 "unit": "BIT",
-                "segmentationClass": 11
+                "segmentationClass": 11,
+                "valueSource": "ACTUAL_IMAGE"
               }
             ]
           }
         },
         {
+          "id": 9,
           "enabled": true,
           "command": {
-            "type": "CONNECTED_COMPONENTS"
+            "type": "CONNECTED_COMPONENTS",
+            "minSize": 0
           }
         },
         {
+          "id": 10,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 11,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -342,7 +370,8 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         }
       ]
@@ -355,6 +384,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "VORONOI",
@@ -387,6 +417,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "MEDIAN_SUBTRACT",
@@ -394,6 +425,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -401,6 +433,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -412,34 +445,42 @@
                 "minThreshold": 200.0,
                 "maxThreshold": 65535.0,
                 "unit": "BIT",
-                "segmentationClass": 21
+                "segmentationClass": 21,
+                "valueSource": "ACTUAL_IMAGE"
               }
             ]
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
-            "type": "CONNECTED_COMPONENTS"
+            "type": "CONNECTED_COMPONENTS",
+            "minSize": 0
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
             "type": "WATERSHED",
             "maximumFinderTolerance": 0.5,
             "smoothingSigma": 0.0,
-            "minObjectSize": 0
+            "minObjectSize": 0,
+            "seedSource": "DISTANCE_MAP"
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -466,10 +507,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -487,7 +530,8 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         }
       ]
@@ -502,6 +546,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "MEDIAN_SUBTRACT",
@@ -509,6 +554,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -516,6 +562,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -527,34 +574,42 @@
                 "minThreshold": 200.0,
                 "maxThreshold": 65535.0,
                 "unit": "BIT",
-                "segmentationClass": 1
+                "segmentationClass": 1,
+                "valueSource": "ACTUAL_IMAGE"
               }
             ]
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
-            "type": "CONNECTED_COMPONENTS"
+            "type": "CONNECTED_COMPONENTS",
+            "minSize": 0
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
             "type": "WATERSHED",
             "maximumFinderTolerance": 0.5,
             "smoothingSigma": 0.0,
-            "minObjectSize": 0
+            "minObjectSize": 0,
+            "seedSource": "DISTANCE_MAP"
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -581,10 +636,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -602,7 +659,8 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         }
       ]
@@ -615,6 +673,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -632,10 +691,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -653,10 +714,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -687,10 +750,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -721,10 +786,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         }
       ]
     }
-  ]
+  ],
+  "components": []
 }

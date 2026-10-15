@@ -16,7 +16,8 @@
       "colocalization",
       "spots",
       "3-channel"
-    ]
+    ],
+    "appVersion": ""
   },
   "classification": {
     "classes": [
@@ -28,97 +29,97 @@
       },
       {
         "id": 15,
-        "color": "#5EFF00",
+        "color": "#5eff00",
         "name": "ch1@allspots",
         "notes": ""
       },
       {
         "id": 1,
-        "color": "#FF3333",
+        "color": "#ff3333",
         "name": "ch2@allspots",
         "notes": ""
       },
       {
         "id": 5,
-        "color": "#3399FF",
+        "color": "#3399ff",
         "name": "ch3@all spots",
         "notes": ""
       },
       {
         "id": 16,
-        "color": "#D2FF00",
+        "color": "#d2ff00",
         "name": "tetraspeck@spot",
         "notes": ""
       },
       {
         "id": 7,
-        "color": "#FFD200",
+        "color": "#ffd200",
         "name": "ch1@coloc_ch2",
         "notes": ""
       },
       {
         "id": 8,
-        "color": "#FFFF33",
+        "color": "#ffff33",
         "name": "ch1@coloc_ch3",
         "notes": ""
       },
       {
         "id": 4,
-        "color": "#F6FF00",
+        "color": "#f6ff00",
         "name": "ch1@coloc_ch2and3",
         "notes": ""
       },
       {
         "id": 11,
-        "color": "#FF33C4",
+        "color": "#ff33c4",
         "name": "ch2@coloc_ch1",
         "notes": ""
       },
       {
         "id": 2,
-        "color": "#FF33FF",
+        "color": "#ff33ff",
         "name": "ch2@coloc_ch3",
         "notes": ""
       },
       {
         "id": 3,
-        "color": "#9933FF",
+        "color": "#9933ff",
         "name": "ch2@coloc_ch1and3",
         "notes": ""
       },
       {
         "id": 6,
-        "color": "#33FFD1",
+        "color": "#33ffd1",
         "name": "ch3@coloc_ch1",
         "notes": ""
       },
       {
         "id": 9,
-        "color": "#33FFCC",
+        "color": "#33ffcc",
         "name": "ch3@coloc_ch2",
         "notes": ""
       },
       {
         "id": 10,
-        "color": "#33FF99",
+        "color": "#33ff99",
         "name": "ch3@coloc_ch1and2",
         "notes": ""
       },
       {
         "id": 12,
-        "color": "#33FF57",
+        "color": "#33ff57",
         "name": "ch1@noncoloc",
         "notes": ""
       },
       {
         "id": 13,
-        "color": "#FF3380",
+        "color": "#ff3380",
         "name": "ch2@noncoloc",
         "notes": ""
       },
       {
         "id": 14,
-        "color": "#33CFFF",
+        "color": "#33cfff",
         "name": "ch3@noncoloc",
         "notes": ""
       }
@@ -164,6 +165,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "ROLLING_BALL",
@@ -173,6 +175,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -180,6 +183,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -187,6 +191,7 @@
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -198,34 +203,42 @@
                 "minThreshold": 200.0,
                 "maxThreshold": 65535.0,
                 "unit": "BIT",
-                "segmentationClass": 15
+                "segmentationClass": 15,
+                "valueSource": "ACTUAL_IMAGE"
               }
             ]
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
-            "type": "CONNECTED_COMPONENTS"
+            "type": "CONNECTED_COMPONENTS",
+            "minSize": 0
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "WATERSHED",
             "maximumFinderTolerance": 0.5,
             "smoothingSigma": 0.0,
-            "minObjectSize": 0
+            "minObjectSize": 0,
+            "seedSource": "DISTANCE_MAP"
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -252,7 +265,8 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         }
       ]
@@ -267,6 +281,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "ROLLING_BALL",
@@ -276,6 +291,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -283,6 +299,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -290,6 +307,7 @@
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -301,34 +319,42 @@
                 "minThreshold": 200.0,
                 "maxThreshold": 65535.0,
                 "unit": "BIT",
-                "segmentationClass": 1
+                "segmentationClass": 1,
+                "valueSource": "ACTUAL_IMAGE"
               }
             ]
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
-            "type": "CONNECTED_COMPONENTS"
+            "type": "CONNECTED_COMPONENTS",
+            "minSize": 0
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "WATERSHED",
             "maximumFinderTolerance": 0.5,
             "smoothingSigma": 0.0,
-            "minObjectSize": 0
+            "minObjectSize": 0,
+            "seedSource": "DISTANCE_MAP"
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -355,7 +381,8 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         }
       ]
@@ -370,6 +397,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "ROLLING_BALL",
@@ -379,6 +407,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -386,6 +415,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -393,6 +423,7 @@
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -404,34 +435,42 @@
                 "minThreshold": 200.0,
                 "maxThreshold": 65535.0,
                 "unit": "BIT",
-                "segmentationClass": 5
+                "segmentationClass": 5,
+                "valueSource": "ACTUAL_IMAGE"
               }
             ]
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
-            "type": "CONNECTED_COMPONENTS"
+            "type": "CONNECTED_COMPONENTS",
+            "minSize": 0
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "WATERSHED",
             "maximumFinderTolerance": 0.5,
             "smoothingSigma": 0.0,
-            "minObjectSize": 0
+            "minObjectSize": 0,
+            "seedSource": "DISTANCE_MAP"
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -458,7 +497,8 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         }
       ]
@@ -466,13 +506,14 @@
     {
       "id": 4,
       "name": "Tetraspeck",
-      "description": "This pipeline enables the removal of calibration beads (e.g. tetraspeck) that are fluorescent in all channels.\n1. Enable pipeline \ud83d\udc41\n2. Select Tetraspeck image channel (channel showing only tetraspecks)\n3. Adapt (manual) threshold\n4. The *Classify objects* steps at the end remove every spot overlapping a tetraspeck - add or remove steps for the channels where tetraspecks need to be removed.",
+      "description": "This pipeline enables the removal of calibration beads (e.g. tetraspeck) that are fluorescent in all channels.\n1. Enable pipeline 👁\n2. Select Tetraspeck image channel (channel showing only tetraspecks)\n3. Adapt (manual) threshold\n4. The *Classify objects* steps at the end remove every spot overlapping a tetraspeck - add or remove steps for the channels where tetraspecks need to be removed.",
       "imageSource": {
         "channel": 3
       },
       "enabled": false,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "ROLLING_BALL",
@@ -482,6 +523,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -489,6 +531,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -496,6 +539,7 @@
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -507,34 +551,42 @@
                 "minThreshold": 200.0,
                 "maxThreshold": 65535.0,
                 "unit": "BIT",
-                "segmentationClass": 16
+                "segmentationClass": 16,
+                "valueSource": "ACTUAL_IMAGE"
               }
             ]
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
-            "type": "CONNECTED_COMPONENTS"
+            "type": "CONNECTED_COMPONENTS",
+            "minSize": 0
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "WATERSHED",
             "maximumFinderTolerance": 0.5,
             "smoothingSigma": 0.0,
-            "minObjectSize": 0
+            "minObjectSize": 0,
+            "seedSource": "DISTANCE_MAP"
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -561,10 +613,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 9,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -593,10 +647,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 10,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -625,10 +681,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 11,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -657,7 +715,8 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         }
       ]
@@ -670,6 +729,7 @@
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -690,10 +750,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -714,10 +776,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -738,10 +802,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -759,10 +825,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -780,10 +848,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -801,10 +871,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -822,10 +894,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -843,10 +917,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 9,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -864,10 +940,12 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0
+            "minColocArea": 0.0,
+            "excludeClasses": []
           }
         },
         {
+          "id": 10,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -898,10 +976,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 11,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -932,10 +1012,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 12,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -966,10 +1048,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 13,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -1000,10 +1084,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 14,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -1034,10 +1120,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         },
         {
+          "id": 15,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -1068,10 +1156,12 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": true
+            "allowEdgeTouching": true,
+            "intensityFilters": []
           }
         }
       ]
     }
-  ]
+  ],
+  "components": []
 }

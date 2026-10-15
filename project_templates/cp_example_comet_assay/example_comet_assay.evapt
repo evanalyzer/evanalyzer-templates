@@ -88,12 +88,14 @@
     {
       "id": 1,
       "name": "comet",
+      "description": null,
       "imageSource": {
         "channel": 0
       },
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "ILLUMINATION_CORRECTION",
@@ -108,6 +110,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -115,6 +118,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -137,6 +141,7 @@
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "MORPHOLOGICAL_COMMAND",
@@ -147,6 +152,7 @@
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
             "type": "CONNECTED_COMPONENTS",
@@ -154,6 +160,7 @@
           }
         },
         {
+          "id": 6,
           "enabled": false,
           "command": {
             "type": "WATERSHED",
@@ -164,13 +171,16 @@
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 8,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -197,7 +207,8 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": false
+            "allowEdgeTouching": false,
+            "intensityFilters": []
           }
         }
       ]
@@ -205,12 +216,14 @@
     {
       "id": 2,
       "name": "comethead",
+      "description": null,
       "imageSource": {
         "channel": 0
       },
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "ILLUMINATION_CORRECTION",
@@ -225,6 +238,7 @@
           }
         },
         {
+          "id": 2,
           "enabled": true,
           "command": {
             "type": "BLUR",
@@ -232,6 +246,7 @@
           }
         },
         {
+          "id": 3,
           "enabled": true,
           "command": {
             "type": "THRESHOLD",
@@ -253,6 +268,7 @@
           }
         },
         {
+          "id": 4,
           "enabled": true,
           "command": {
             "type": "MORPHOLOGICAL_COMMAND",
@@ -263,6 +279,7 @@
           }
         },
         {
+          "id": 5,
           "enabled": true,
           "command": {
             "type": "CONNECTED_COMPONENTS",
@@ -270,13 +287,16 @@
           }
         },
         {
+          "id": 6,
           "enabled": true,
           "command": {
             "type": "EXTRACT_OBJECTS",
-            "maxObjectsBeforeFail": 100000
+            "maxObjectsBeforeFail": 100000,
+            "classMapping": []
           }
         },
         {
+          "id": 7,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -305,7 +325,8 @@
             "maxEccentricity": 1.0,
             "minFeret": 0.0,
             "maxFeret": 2147483600.0,
-            "allowEdgeTouching": false
+            "allowEdgeTouching": false,
+            "intensityFilters": []
           }
         }
       ]
@@ -313,10 +334,12 @@
     {
       "id": 3,
       "name": "comettail",
+      "description": null,
       "imageSource": "SCRATCHPAD",
       "enabled": true,
       "steps": [
         {
+          "id": 1,
           "enabled": true,
           "command": {
             "type": "OBJECT_MATH",
@@ -338,5 +361,6 @@
         }
       ]
     }
-  ]
+  ],
+  "components": []
 }

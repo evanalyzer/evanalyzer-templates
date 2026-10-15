@@ -1,20 +1,20 @@
 name: Check templates against schema
 
-# Validates every .evapipe/.evapt file in this repo by deserializing it with
-# evanalyzer's actual PipelineTemplate/ProjectTemplate types
+# Validates every .evacomp/.evapt file in this repo by deserializing it with
+# evanalyzer's actual ComponentTemplate/ProjectTemplate types
 # (evanalyzer/evanalyzer's crates/cfg/examples/check_templates.rs) - the same
 # types and the same serde_json::from_str call the GUI/CLI use to load
 # templates. That's stronger than validating against
-# docs/pipeline_template.schema.json / docs/project_template.schema.json with
+# docs/component_template.schema.json / docs/project_template.schema.json with
 # a generic JSON Schema validator: a `#[serde(alias = ...)]` or an enum's
 # tagging behavior can change what actually deserializes without necessarily
 # showing up as a schema-shape difference.
 #
-# This is the counterpart to evanalyzer/evanalyzer's own
-# .github/workflows/check-templates.yml, which runs the same check in the
-# other direction (that repo's CI pulls this repo's templates in). Having it
-# here too means a bad template is caught at PR time in this repo, instead of
-# only on the other repo's next scheduled run.
+# This is the counterpart to the `templates` job in evanalyzer/evanalyzer's
+# .github/workflows/ci.yml, which runs the same check in the other direction
+# (that repo's CI pulls this repo's templates in). Having it here too means a
+# bad template is caught at PR time in this repo, instead of only on the
+# other repo's next run.
 on:
   push:
   pull_request:
@@ -50,6 +50,19 @@ jobs:
         with:
           workspaces: evanalyzer
           key: linux-x86_64-check-templates
+
+      # Pipeline templates (.evapipe) were replaced by components (.evacomp).
+      # check_templates skips unknown extensions and the evanalyzer release
+      # only ships .evapt/.evacomp, so a leftover .evapipe would pass here and
+      # silently go missing from the app.
+      - name: Reject legacy pipeline templates
+        run: |
+          legacy=$(find evanalyzer-templates -name '*.evapipe' -not -path '*/.git/*')
+          if [ -n "$legacy" ]; then
+            echo "Convert these .evapipe files to .evacomp components:"
+            echo "$legacy"
+            exit 1
+          fi
 
       - name: Check every template against the current schema
         run: |
