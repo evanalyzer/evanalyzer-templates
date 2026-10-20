@@ -11,10 +11,12 @@
         "organization": "University of Salzburg"
       }
     ],
-    "creationTime": "2026-06-11T00:00:00Z",
-    "version": 1,
-    "category": "",
-    "tags": [],
+    "creationTime": "2026-10-20T17:25:28.754415732Z",
+    "version": 2,
+    "category": "nucleus",
+    "tags": [
+      "nucleus"
+    ],
     "appVersion": "0.1.0"
   },
   "classes": [],
@@ -147,19 +149,6 @@
         {
           "step": 8,
           "param": "input_classes"
-        }
-      ]
-    },
-    {
-      "key": "background_radius",
-      "label": "Background radius",
-      "description": "",
-      "section": "Detection",
-      "default": 4,
-      "bindings": [
-        {
-          "step": 1,
-          "param": "radius"
         }
       ]
     },

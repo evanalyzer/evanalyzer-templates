@@ -11,10 +11,12 @@
         "organization": "University of Salzburg"
       }
     ],
-    "creationTime": "2026-06-11T00:00:00Z",
-    "version": 1,
-    "category": "",
-    "tags": [],
+    "creationTime": "2026-10-20T17:24:19.175336003Z",
+    "version": 2,
+    "category": "Spot Detection",
+    "tags": [
+      "spot"
+    ],
     "appVersion": "0.1.0"
   },
   "classes": [],
@@ -146,19 +148,6 @@
       ]
     },
     {
-      "key": "background_radius",
-      "label": "Background radius",
-      "description": "",
-      "section": "Detection",
-      "default": 4,
-      "bindings": [
-        {
-          "step": 1,
-          "param": "radius"
-        }
-      ]
-    },
-    {
       "key": "threshold_method",
       "label": "Threshold method",
       "description": "",
@@ -194,19 +183,6 @@
         {
           "step": 7,
           "param": "min_area"
-        }
-      ]
-    },
-    {
-      "key": "max_area",
-      "label": "Max area",
-      "description": "",
-      "section": "Filter",
-      "default": 2147483600,
-      "bindings": [
-        {
-          "step": 7,
-          "param": "max_area"
         }
       ]
     },
