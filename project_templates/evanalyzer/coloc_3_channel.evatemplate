@@ -167,7 +167,7 @@
         {
           "id": 1,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "EV_DETECTION",
             "values": {
               "evs": "16",
@@ -184,12 +184,12 @@
       "name": "Coloc 3 channels",
       "enabled": true,
       "imageSource": "NONE",
-      "description": "Set image channels, classes and detection settings on the component.",
+      "description": "Set image channels, classes and detection settings on the module.",
       "steps": [
         {
           "id": 1,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "COLOC_3_CHANNEL",
             "values": {}
           }
@@ -197,7 +197,7 @@
       ]
     }
   ],
-  "components": [
+  "modules": [
     {
       "key": "COLOC_3_CHANNEL",
       "meta": {
@@ -232,7 +232,7 @@
         {
           "id": 2,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "EV_DETECTION",
             "values": {
               "evs": "15",
@@ -253,7 +253,7 @@
         {
           "id": 4,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "EV_DETECTION",
             "values": {
               "evs": "1",
@@ -274,7 +274,7 @@
         {
           "id": 6,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "EV_DETECTION",
             "values": {
               "evs": "5",
@@ -1391,7 +1391,7 @@
       "meta": {
         "name": "EV detection",
         "shortDescription": "EV detection",
-        "description": "Detects extracellular vesicles (EVs) in a fluorescence channel using rolling ball background subtraction, blurring and Li thresholding. The class the objects get is the component's \"EVs\" parameter.",
+        "description": "Detects extracellular vesicles (EVs) in a fluorescence channel using rolling ball background subtraction, blurring and Li thresholding. The class the objects get is the module's \"EVs\" parameter.",
         "authors": [
           {
             "fullName": "Melanie Schuerz",
@@ -1588,7 +1588,7 @@
         }
       ],
       "origin": {
-        "originComponentKey": "EV_DETECTION",
+        "originModuleKey": "EV_DETECTION",
         "library": "ev_detection.evacomp",
         "version": 2,
         "contentHash": "c30e99d5bd4fefde"

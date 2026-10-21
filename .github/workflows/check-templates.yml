@@ -1,11 +1,11 @@
 name: Check templates against schema
 
-# Validates every .evacomp/.evapt file in this repo by deserializing it with
-# evanalyzer's actual ComponentTemplate/ProjectTemplate types
+# Validates every .evamodule/.evatemplate file in this repo by deserializing it
+# with evanalyzer's actual ModuleTemplate/ProjectTemplate types
 # (evanalyzer/evanalyzer's crates/cfg/examples/check_templates.rs) - the same
 # types and the same serde_json::from_str call the GUI/CLI use to load
 # templates. That's stronger than validating against
-# docs/component_template.schema.json / docs/project_template.schema.json with
+# docs/module_template.schema.json / docs/project_template.schema.json with
 # a generic JSON Schema validator: a `#[serde(alias = ...)]` or an enum's
 # tagging behavior can change what actually deserializes without necessarily
 # showing up as a schema-shape difference.
@@ -19,6 +19,12 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+
+env:
+  # The evanalyzer branch whose schema the templates must match. The
+  # .evatemplate/.evamodule format only exists on ai-plugin so far - switch
+  # back to main once ai-plugin is merged.
+  EVANALYZER_REF: ai-plugin
 
 jobs:
   check-templates:
@@ -38,6 +44,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: evanalyzer/evanalyzer
+          ref: ${{ env.EVANALYZER_REF }}
           path: evanalyzer
 
       - name: Trust the checked-out workspaces
@@ -51,15 +58,16 @@ jobs:
           workspaces: evanalyzer
           key: linux-x86_64-check-templates
 
-      # Pipeline templates (.evapipe) were replaced by components (.evacomp).
-      # check_templates skips unknown extensions and the evanalyzer release
-      # only ships .evapt/.evacomp, so a leftover .evapipe would pass here and
-      # silently go missing from the app.
-      - name: Reject legacy pipeline templates
+      # Pipeline templates (.evapipe) became modules (.evamodule), and .evapt /
+      # .evacomp were renamed to .evatemplate / .evamodule. check_templates
+      # skips unknown extensions and the evanalyzer release only ships
+      # .evatemplate/.evamodule, so a file with an old extension would pass
+      # here and silently go missing from the app.
+      - name: Reject legacy file extensions
         run: |
-          legacy=$(find evanalyzer-templates -name '*.evapipe' -not -path '*/.git/*')
+          legacy=$(find evanalyzer-templates \( -name '*.evapipe' -o -name '*.evapt' -o -name '*.evacomp' \) -not -path '*/.git/*')
           if [ -n "$legacy" ]; then
-            echo "Convert these .evapipe files to .evacomp components:"
+            echo "Rename/convert these files (.evapt -> .evatemplate, .evacomp/.evapipe -> .evamodule):"
             echo "$legacy"
             exit 1
           fi

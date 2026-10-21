@@ -130,12 +130,12 @@
       "name": "Coloc 2 channels",
       "enabled": true,
       "imageSource": "NONE",
-      "description": "Set image channels, classes and detection settings on the component.",
+      "description": "Set image channels, classes and detection settings on the module.",
       "steps": [
         {
           "id": 1,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "COLOC_2_CHANNEL",
             "values": {}
           }
@@ -143,7 +143,7 @@
       ]
     }
   ],
-  "components": [
+  "modules": [
     {
       "key": "COLOC_2_CHANNEL",
       "meta": {
@@ -178,7 +178,7 @@
         {
           "id": 2,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "NUCLEI_DETECTION",
             "values": {
               "nuclei": "4",
@@ -199,7 +199,7 @@
         {
           "id": 4,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "CELL_AREA_BRIGHTFIELD",
             "values": {
               "cell_area": "11",
@@ -242,7 +242,7 @@
         {
           "id": 7,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "EV_IN_CELL_DETECTION",
             "values": {
               "evs_in_cells": "21",
@@ -286,7 +286,7 @@
         {
           "id": 10,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "EV_IN_CELL_DETECTION",
             "values": {
               "evs_in_cells": "1",
@@ -876,7 +876,7 @@
       "meta": {
         "name": "Nuclei detection",
         "shortDescription": "Nuclei detection",
-        "description": "Detects cell nuclei using rolling ball background subtraction, blurring, Triangle thresholding and watershed splitting. The class the objects get is the component's \"Nuclei\" parameter.",
+        "description": "Detects cell nuclei using rolling ball background subtraction, blurring, Triangle thresholding and watershed splitting. The class the objects get is the module's \"Nuclei\" parameter.",
         "authors": [
           {
             "fullName": "Melanie Schuerz",
@@ -1091,7 +1091,7 @@
         }
       ],
       "origin": {
-        "originComponentKey": "NUCLEI_DETECTION",
+        "originModuleKey": "NUCLEI_DETECTION",
         "library": "nuclei_detection.evacomp",
         "version": 2,
         "contentHash": "b758552d7ab503e7"
@@ -1102,7 +1102,7 @@
       "meta": {
         "name": "Cell area brightfield",
         "shortDescription": "Cell brightfield",
-        "description": "Segments the overall cell area from a brightfield image using Sobel edge detection, blurring and an automatic threshold. The class the objects get is the component's \"Cell area\" parameter.",
+        "description": "Segments the overall cell area from a brightfield image using Sobel edge detection, blurring and an automatic threshold. The class the objects get is the module's \"Cell area\" parameter.",
         "authors": [
           {
             "fullName": "Melanie Schuerz",
@@ -1335,7 +1335,7 @@
         }
       ],
       "origin": {
-        "originComponentKey": "CELL_AREA_BRIGHTFIELD",
+        "originModuleKey": "CELL_AREA_BRIGHTFIELD",
         "library": "cell_area_brightfield.evacomp",
         "version": 2,
         "contentHash": "6387ba97f8507461"
@@ -1346,7 +1346,7 @@
       "meta": {
         "name": "EV in cell detection",
         "shortDescription": "EV in cell detection",
-        "description": "Detects extracellular vesicles inside cells using median background subtraction, blurring, Li thresholding and watershed splitting. The class the objects get is the component's \"EVs in cells\" parameter.",
+        "description": "Detects extracellular vesicles inside cells using median background subtraction, blurring, Li thresholding and watershed splitting. The class the objects get is the module's \"EVs in cells\" parameter.",
         "authors": [
           {
             "fullName": "Melanie Schuerz",
@@ -1551,7 +1551,7 @@
         }
       ],
       "origin": {
-        "originComponentKey": "EV_IN_CELL_DETECTION",
+        "originModuleKey": "EV_IN_CELL_DETECTION",
         "library": "ev_in_cell_detection.evacomp",
         "version": 2,
         "contentHash": "b2b35b15b54d4320"

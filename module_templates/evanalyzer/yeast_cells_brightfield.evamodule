@@ -4,7 +4,7 @@
   "meta": {
     "name": "Yeast cells brightfield",
     "shortDescription": "Yeast cells brightfield",
-    "description": "Segments yeast cells from a brightfield image using contrast enhancement, Gaussian blur, Canny edge detection, manual thresholding and a Voronoi tessellation around detected cell centers. The class the cells get is the component's \"Yeast cells\" parameter. The Hough-transform cell-center detection of the original pipeline is approximated by Connected Components on the thresholded edges; the detected objects (the component's own class \"Cell centers\") are used as Voronoi centers.",
+    "description": "Segments yeast cells from a brightfield image using contrast enhancement, Gaussian blur, Canny edge detection, manual thresholding and a Voronoi tessellation around detected cell centers. The class the cells get is the module's \"Yeast cells\" parameter. The Hough-transform cell-center detection of the original pipeline is approximated by Connected Components on the thresholded edges; the detected objects (the component's own class \"Cell centers\") are used as Voronoi centers.",
     "authors": [
       {
         "fullName": "Melanie Schuerz",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 4,
   "meta": {
-    "name": "Cell uptake 2 channels coloc",
+    "name": "Cell uptake 3 channels coloc",
     "shortDescription": "Uptake assay with two spot channels and brightfield cell.",
     "description": "Uptake assay with two spot channels and brightfield cell.",
     "authors": [
@@ -17,7 +17,7 @@
       "uptake-assay",
       "colocalization",
       "brightfield",
-      "2-channel"
+      "3-channel"
     ],
     "appVersion": ""
   },
@@ -60,6 +60,12 @@
         "notes": ""
       },
       {
+        "id": 2,
+        "color": "#ff3366",
+        "name": "ch3@spot",
+        "notes": ""
+      },
+      {
         "id": 13,
         "color": "#33cfff",
         "name": "ch1@in-cell-spots",
@@ -72,15 +78,63 @@
         "notes": ""
       },
       {
+        "id": 5,
+        "color": "#33cfff",
+        "name": "ch3@in-cell-spots",
+        "notes": ""
+      },
+      {
+        "id": 6,
+        "color": "#9933ff",
+        "name": "ch1@ in-cell-spots coloc ch2",
+        "notes": ""
+      },
+      {
+        "id": 14,
+        "color": "#9933ff",
+        "name": "ch1@ in-cell-spots coloc ch3",
+        "notes": ""
+      },
+      {
+        "id": 7,
+        "color": "#9933ff",
+        "name": "ch1@ in-cell-spots coloc ch2and3",
+        "notes": ""
+      },
+      {
         "id": 8,
         "color": "#9933ff",
-        "name": "ch1@ in-cell-spots coloc ",
+        "name": "ch2@ in-cell-spots coloc ch1",
         "notes": ""
       },
       {
         "id": 9,
         "color": "#9933ff",
-        "name": "ch2@ in-cell-spots coloc ",
+        "name": "ch2@ in-cell-spots coloc ch3",
+        "notes": ""
+      },
+      {
+        "id": 10,
+        "color": "#9933ff",
+        "name": "ch2@ in-cell-spots coloc ch1and3",
+        "notes": ""
+      },
+      {
+        "id": 15,
+        "color": "#9933ff",
+        "name": "ch3@ in-cell-spots coloc ch1",
+        "notes": ""
+      },
+      {
+        "id": 16,
+        "color": "#9933ff",
+        "name": "ch3@ in-cell-spots coloc ch2",
+        "notes": ""
+      },
+      {
+        "id": 17,
+        "color": "#9933ff",
+        "name": "ch3@ in-cell-spots coloc ch1and2",
         "notes": ""
       },
       {
@@ -93,6 +147,12 @@
         "id": 19,
         "color": "#9933ff",
         "name": "ch2@ in-cell-spots non coloc",
+        "notes": ""
+      },
+      {
+        "id": 20,
+        "color": "#9933ff",
+        "name": "ch3@ in-cell-spots non coloc",
         "notes": ""
       }
     ]
@@ -129,27 +189,27 @@
   "pipelines": [
     {
       "id": 1,
-      "name": "Cell uptake 2 channels coloc",
+      "name": "Cell uptake 3 channels coloc",
       "enabled": true,
       "imageSource": "NONE",
-      "description": "Set image channels, classes and detection settings on the component.",
+      "description": "Set image channels, classes and detection settings on the module.",
       "steps": [
         {
           "id": 1,
           "enabled": true,
-          "component": {
-            "key": "CELL_UPTAKE_2_CHANNEL_COLOC",
+          "module": {
+            "key": "CELL_UPTAKE_3_CHANNEL_COLOC",
             "values": {}
           }
         }
       ]
     }
   ],
-  "components": [
+  "modules": [
     {
-      "key": "CELL_UPTAKE_2_CHANNEL_COLOC",
+      "key": "CELL_UPTAKE_3_CHANNEL_COLOC",
       "meta": {
-        "name": "Cell uptake 2 channels coloc",
+        "name": "Cell uptake 3 channels coloc",
         "shortDescription": "Uptake assay with two spot channels and brightfield cell.",
         "description": "Uptake assay with two spot channels and brightfield cell.",
         "authors": [
@@ -166,7 +226,7 @@
           "uptake-assay",
           "colocalization",
           "brightfield",
-          "2-channel"
+          "3-channel"
         ]
       },
       "classes": [],
@@ -182,7 +242,7 @@
         {
           "id": 2,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "NUCLEI_DETECTION",
             "values": {
               "nuclei": "4",
@@ -203,7 +263,7 @@
         {
           "id": 4,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "CELL_AREA_BRIGHTFIELD",
             "values": {
               "cell_area": "11",
@@ -246,7 +306,7 @@
         {
           "id": 7,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "EV_IN_CELL_DETECTION",
             "values": {
               "evs_in_cells": "21",
@@ -290,7 +350,7 @@
         {
           "id": 10,
           "enabled": true,
-          "component": {
+          "module": {
             "key": "EV_IN_CELL_DETECTION",
             "values": {
               "evs_in_cells": "1",
@@ -327,6 +387,50 @@
           "id": 12,
           "enabled": true,
           "command": {
+            "type": "LOAD_CHANNEL",
+            "channel": 4
+          }
+        },
+        {
+          "id": 13,
+          "enabled": true,
+          "module": {
+            "key": "EV_IN_CELL_DETECTION",
+            "values": {
+              "evs_in_cells": "2",
+              "threshold_method": "Manual",
+              "min_threshold": 200.0,
+              "min_area": 5.0
+            }
+          }
+        },
+        {
+          "id": 14,
+          "enabled": true,
+          "command": {
+            "type": "COLOCALIZATION",
+            "classesToColoc": [
+              {
+                "GLOBAL": 2
+              },
+              {
+                "GLOBAL": 12
+              }
+            ],
+            "filterClasses": [],
+            "classForOverlappingAreas": {
+              "GLOBAL": 5
+            },
+            "multiplicity": "MANY_TO_MANY",
+            "sizeUnit": "PIXELS",
+            "minColocArea": 0.0,
+            "excludeClasses": []
+          }
+        },
+        {
+          "id": 15,
+          "enabled": true,
+          "command": {
             "type": "COLOCALIZATION",
             "classesToColoc": [
               {
@@ -338,7 +442,7 @@
             ],
             "filterClasses": [],
             "classForOverlappingAreas": {
-              "GLOBAL": 8
+              "GLOBAL": 6
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
@@ -347,7 +451,7 @@
           }
         },
         {
-          "id": 13,
+          "id": 16,
           "enabled": true,
           "command": {
             "type": "COLOCALIZATION",
@@ -361,6 +465,75 @@
             ],
             "filterClasses": [],
             "classForOverlappingAreas": {
+              "GLOBAL": 8
+            },
+            "multiplicity": "MANY_TO_MANY",
+            "sizeUnit": "PIXELS",
+            "minColocArea": 0.0,
+            "excludeClasses": []
+          }
+        },
+        {
+          "id": 17,
+          "enabled": true,
+          "command": {
+            "type": "COLOCALIZATION",
+            "classesToColoc": [
+              {
+                "GLOBAL": 13
+              },
+              {
+                "GLOBAL": 5
+              }
+            ],
+            "filterClasses": [],
+            "classForOverlappingAreas": {
+              "GLOBAL": 14
+            },
+            "multiplicity": "MANY_TO_MANY",
+            "sizeUnit": "PIXELS",
+            "minColocArea": 0.0,
+            "excludeClasses": []
+          }
+        },
+        {
+          "id": 18,
+          "enabled": true,
+          "command": {
+            "type": "COLOCALIZATION",
+            "classesToColoc": [
+              {
+                "GLOBAL": 5
+              },
+              {
+                "GLOBAL": 13
+              }
+            ],
+            "filterClasses": [],
+            "classForOverlappingAreas": {
+              "GLOBAL": 15
+            },
+            "multiplicity": "MANY_TO_MANY",
+            "sizeUnit": "PIXELS",
+            "minColocArea": 0.0,
+            "excludeClasses": []
+          }
+        },
+        {
+          "id": 19,
+          "enabled": true,
+          "command": {
+            "type": "COLOCALIZATION",
+            "classesToColoc": [
+              {
+                "GLOBAL": 3
+              },
+              {
+                "GLOBAL": 5
+              }
+            ],
+            "filterClasses": [],
+            "classForOverlappingAreas": {
               "GLOBAL": 9
             },
             "multiplicity": "MANY_TO_MANY",
@@ -370,7 +543,108 @@
           }
         },
         {
-          "id": 14,
+          "id": 20,
+          "enabled": true,
+          "command": {
+            "type": "COLOCALIZATION",
+            "classesToColoc": [
+              {
+                "GLOBAL": 5
+              },
+              {
+                "GLOBAL": 3
+              }
+            ],
+            "filterClasses": [],
+            "classForOverlappingAreas": {
+              "GLOBAL": 16
+            },
+            "multiplicity": "MANY_TO_MANY",
+            "sizeUnit": "PIXELS",
+            "minColocArea": 0.0,
+            "excludeClasses": []
+          }
+        },
+        {
+          "id": 21,
+          "enabled": true,
+          "command": {
+            "type": "COLOCALIZATION",
+            "classesToColoc": [
+              {
+                "GLOBAL": 13
+              },
+              {
+                "GLOBAL": 3
+              },
+              {
+                "GLOBAL": 5
+              }
+            ],
+            "filterClasses": [],
+            "classForOverlappingAreas": {
+              "GLOBAL": 7
+            },
+            "multiplicity": "MANY_TO_MANY",
+            "sizeUnit": "PIXELS",
+            "minColocArea": 0.0,
+            "excludeClasses": []
+          }
+        },
+        {
+          "id": 22,
+          "enabled": true,
+          "command": {
+            "type": "COLOCALIZATION",
+            "classesToColoc": [
+              {
+                "GLOBAL": 3
+              },
+              {
+                "GLOBAL": 13
+              },
+              {
+                "GLOBAL": 5
+              }
+            ],
+            "filterClasses": [],
+            "classForOverlappingAreas": {
+              "GLOBAL": 10
+            },
+            "multiplicity": "MANY_TO_MANY",
+            "sizeUnit": "PIXELS",
+            "minColocArea": 0.0,
+            "excludeClasses": []
+          }
+        },
+        {
+          "id": 23,
+          "enabled": true,
+          "command": {
+            "type": "COLOCALIZATION",
+            "classesToColoc": [
+              {
+                "GLOBAL": 5
+              },
+              {
+                "GLOBAL": 13
+              },
+              {
+                "GLOBAL": 3
+              }
+            ],
+            "filterClasses": [],
+            "classForOverlappingAreas": {
+              "GLOBAL": 17
+            },
+            "multiplicity": "MANY_TO_MANY",
+            "sizeUnit": "PIXELS",
+            "minColocArea": 0.0,
+            "excludeClasses": []
+          }
+        },
+        {
+          "id": 24,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -405,7 +679,42 @@
           }
         },
         {
-          "id": 15,
+          "id": 25,
+          "enabled": true,
+          "command": {
+            "type": "CLASSIFY_OBJECTS",
+            "inputClasses": [
+              {
+                "GLOBAL": 18
+              }
+            ],
+            "matchHandling": "REMOVE_OUTPUT_CLASS_IF_MATCH",
+            "outputClass": {
+              "GLOBAL": 18
+            },
+            "overlappingWith": {
+              "GLOBAL": 5
+            },
+            "originSegmentation": [],
+            "minIntersectionArea": 0.0,
+            "sizeUnit": "PIXELS",
+            "minArea": 0.0,
+            "maxArea": 2147483600.0,
+            "minCircularity": 0.0,
+            "maxCircularity": 1.0,
+            "minSolidity": 0.0,
+            "maxSolidity": 1.0,
+            "minAspectRatio": 0.0,
+            "maxAspectRatio": 2147483600.0,
+            "minEccentricity": 0.0,
+            "maxEccentricity": 1.0,
+            "minFeret": 0.0,
+            "maxFeret": 2147483600.0,
+            "allowEdgeTouching": true
+          }
+        },
+        {
+          "id": 26,
           "enabled": true,
           "command": {
             "type": "CLASSIFY_OBJECTS",
@@ -420,6 +729,111 @@
             },
             "overlappingWith": {
               "GLOBAL": 13
+            },
+            "originSegmentation": [],
+            "minIntersectionArea": 0.0,
+            "sizeUnit": "PIXELS",
+            "minArea": 0.0,
+            "maxArea": 2147483600.0,
+            "minCircularity": 0.0,
+            "maxCircularity": 1.0,
+            "minSolidity": 0.0,
+            "maxSolidity": 1.0,
+            "minAspectRatio": 0.0,
+            "maxAspectRatio": 2147483600.0,
+            "minEccentricity": 0.0,
+            "maxEccentricity": 1.0,
+            "minFeret": 0.0,
+            "maxFeret": 2147483600.0,
+            "allowEdgeTouching": true
+          }
+        },
+        {
+          "id": 27,
+          "enabled": true,
+          "command": {
+            "type": "CLASSIFY_OBJECTS",
+            "inputClasses": [
+              {
+                "GLOBAL": 19
+              }
+            ],
+            "matchHandling": "REMOVE_OUTPUT_CLASS_IF_MATCH",
+            "outputClass": {
+              "GLOBAL": 19
+            },
+            "overlappingWith": {
+              "GLOBAL": 5
+            },
+            "originSegmentation": [],
+            "minIntersectionArea": 0.0,
+            "sizeUnit": "PIXELS",
+            "minArea": 0.0,
+            "maxArea": 2147483600.0,
+            "minCircularity": 0.0,
+            "maxCircularity": 1.0,
+            "minSolidity": 0.0,
+            "maxSolidity": 1.0,
+            "minAspectRatio": 0.0,
+            "maxAspectRatio": 2147483600.0,
+            "minEccentricity": 0.0,
+            "maxEccentricity": 1.0,
+            "minFeret": 0.0,
+            "maxFeret": 2147483600.0,
+            "allowEdgeTouching": true
+          }
+        },
+        {
+          "id": 28,
+          "enabled": true,
+          "command": {
+            "type": "CLASSIFY_OBJECTS",
+            "inputClasses": [
+              {
+                "GLOBAL": 5
+              }
+            ],
+            "matchHandling": "ADD_OUTPUT_CLASS_IF_NOT_MATCH",
+            "outputClass": {
+              "GLOBAL": 20
+            },
+            "overlappingWith": {
+              "GLOBAL": 13
+            },
+            "originSegmentation": [],
+            "minIntersectionArea": 0.0,
+            "sizeUnit": "PIXELS",
+            "minArea": 0.0,
+            "maxArea": 2147483600.0,
+            "minCircularity": 0.0,
+            "maxCircularity": 1.0,
+            "minSolidity": 0.0,
+            "maxSolidity": 1.0,
+            "minAspectRatio": 0.0,
+            "maxAspectRatio": 2147483600.0,
+            "minEccentricity": 0.0,
+            "maxEccentricity": 1.0,
+            "minFeret": 0.0,
+            "maxFeret": 2147483600.0,
+            "allowEdgeTouching": true
+          }
+        },
+        {
+          "id": 29,
+          "enabled": true,
+          "command": {
+            "type": "CLASSIFY_OBJECTS",
+            "inputClasses": [
+              {
+                "GLOBAL": 20
+              }
+            ],
+            "matchHandling": "REMOVE_OUTPUT_CLASS_IF_MATCH",
+            "outputClass": {
+              "GLOBAL": 20
+            },
+            "overlappingWith": {
+              "GLOBAL": 3
             },
             "originSegmentation": [],
             "minIntersectionArea": 0.0,
@@ -494,6 +908,19 @@
           ]
         },
         {
+          "key": "channels_spots_ch3",
+          "label": "Spots ch3",
+          "description": "",
+          "section": "Channels",
+          "default": 4,
+          "bindings": [
+            {
+              "step": 12,
+              "param": "channel"
+            }
+          ]
+        },
+        {
           "key": "classes_dapi_nucleus",
           "label": "dapi@nucleus",
           "description": "",
@@ -545,6 +972,10 @@
             {
               "step": 11,
               "param": "classes_to_coloc"
+            },
+            {
+              "step": 14,
+              "param": "classes_to_coloc"
             }
           ]
         },
@@ -577,19 +1008,43 @@
               "param": "class_for_overlapping_areas"
             },
             {
-              "step": 15,
+              "step": 26,
               "param": "overlapping_with"
             },
             {
-              "step": 12,
+              "step": 28,
+              "param": "overlapping_with"
+            },
+            {
+              "step": 15,
               "param": "classes_to_coloc"
             },
             {
-              "step": 13,
+              "step": 16,
               "param": "classes_to_coloc"
             },
             {
-              "step": 14,
+              "step": 17,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 18,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 21,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 22,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 23,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 24,
               "param": "input_classes"
             }
           ]
@@ -623,45 +1078,230 @@
               "param": "class_for_overlapping_areas"
             },
             {
-              "step": 14,
+              "step": 24,
               "param": "overlapping_with"
             },
             {
-              "step": 12,
-              "param": "classes_to_coloc"
-            },
-            {
-              "step": 13,
-              "param": "classes_to_coloc"
+              "step": 29,
+              "param": "overlapping_with"
             },
             {
               "step": 15,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 16,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 19,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 20,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 21,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 22,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 23,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 26,
               "param": "input_classes"
             }
           ]
         },
         {
-          "key": "classes_ch1_in_cell_spots_coloc",
-          "label": "ch1@ in-cell-spots coloc",
+          "key": "classes_ch3_spot",
+          "label": "ch3@spot",
           "description": "",
           "section": "Classes",
-          "default": "8",
+          "default": "2",
           "bindings": [
             {
-              "step": 12,
+              "step": 13,
+              "param": "evs_in_cells"
+            },
+            {
+              "step": 14,
+              "param": "classes_to_coloc"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch3_in_cell_spots",
+          "label": "ch3@in-cell-spots",
+          "description": "",
+          "section": "Classes",
+          "default": "5",
+          "bindings": [
+            {
+              "step": 14,
+              "param": "class_for_overlapping_areas"
+            },
+            {
+              "step": 25,
+              "param": "overlapping_with"
+            },
+            {
+              "step": 27,
+              "param": "overlapping_with"
+            },
+            {
+              "step": 17,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 18,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 19,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 20,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 21,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 22,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 23,
+              "param": "classes_to_coloc"
+            },
+            {
+              "step": 28,
+              "param": "input_classes"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch1_in_cell_spots_coloc_ch2",
+          "label": "ch1@ in-cell-spots coloc ch2",
+          "description": "",
+          "section": "Classes",
+          "default": "6",
+          "bindings": [
+            {
+              "step": 15,
               "param": "class_for_overlapping_areas"
             }
           ]
         },
         {
-          "key": "classes_ch2_in_cell_spots_coloc",
-          "label": "ch2@ in-cell-spots coloc",
+          "key": "classes_ch2_in_cell_spots_coloc_ch1",
+          "label": "ch2@ in-cell-spots coloc ch1",
+          "description": "",
+          "section": "Classes",
+          "default": "8",
+          "bindings": [
+            {
+              "step": 16,
+              "param": "class_for_overlapping_areas"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch1_in_cell_spots_coloc_ch3",
+          "label": "ch1@ in-cell-spots coloc ch3",
+          "description": "",
+          "section": "Classes",
+          "default": "14",
+          "bindings": [
+            {
+              "step": 17,
+              "param": "class_for_overlapping_areas"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch3_in_cell_spots_coloc_ch1",
+          "label": "ch3@ in-cell-spots coloc ch1",
+          "description": "",
+          "section": "Classes",
+          "default": "15",
+          "bindings": [
+            {
+              "step": 18,
+              "param": "class_for_overlapping_areas"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch2_in_cell_spots_coloc_ch3",
+          "label": "ch2@ in-cell-spots coloc ch3",
           "description": "",
           "section": "Classes",
           "default": "9",
           "bindings": [
             {
-              "step": 13,
+              "step": 19,
+              "param": "class_for_overlapping_areas"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch3_in_cell_spots_coloc_ch2",
+          "label": "ch3@ in-cell-spots coloc ch2",
+          "description": "",
+          "section": "Classes",
+          "default": "16",
+          "bindings": [
+            {
+              "step": 20,
+              "param": "class_for_overlapping_areas"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch1_in_cell_spots_coloc_ch2and3",
+          "label": "ch1@ in-cell-spots coloc ch2and3",
+          "description": "",
+          "section": "Classes",
+          "default": "7",
+          "bindings": [
+            {
+              "step": 21,
+              "param": "class_for_overlapping_areas"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch2_in_cell_spots_coloc_ch1and3",
+          "label": "ch2@ in-cell-spots coloc ch1and3",
+          "description": "",
+          "section": "Classes",
+          "default": "10",
+          "bindings": [
+            {
+              "step": 22,
+              "param": "class_for_overlapping_areas"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch3_in_cell_spots_coloc_ch1and2",
+          "label": "ch3@ in-cell-spots coloc ch1and2",
+          "description": "",
+          "section": "Classes",
+          "default": "17",
+          "bindings": [
+            {
+              "step": 23,
               "param": "class_for_overlapping_areas"
             }
           ]
@@ -674,8 +1314,16 @@
           "default": "18",
           "bindings": [
             {
-              "step": 14,
+              "step": 24,
               "param": "output_class"
+            },
+            {
+              "step": 25,
+              "param": "output_class"
+            },
+            {
+              "step": 25,
+              "param": "input_classes"
             }
           ]
         },
@@ -687,8 +1335,37 @@
           "default": "19",
           "bindings": [
             {
-              "step": 15,
+              "step": 26,
               "param": "output_class"
+            },
+            {
+              "step": 27,
+              "param": "output_class"
+            },
+            {
+              "step": 27,
+              "param": "input_classes"
+            }
+          ]
+        },
+        {
+          "key": "classes_ch3_in_cell_spots_non_coloc",
+          "label": "ch3@ in-cell-spots non coloc",
+          "description": "",
+          "section": "Classes",
+          "default": "20",
+          "bindings": [
+            {
+              "step": 28,
+              "param": "output_class"
+            },
+            {
+              "step": 29,
+              "param": "output_class"
+            },
+            {
+              "step": 29,
+              "param": "input_classes"
             }
           ]
         },
@@ -849,6 +1526,45 @@
           ]
         },
         {
+          "key": "spots_ch3_threshold_method",
+          "label": "Threshold method",
+          "description": "",
+          "section": "Spots ch3",
+          "default": "Manual",
+          "bindings": [
+            {
+              "step": 13,
+              "param": "threshold_method"
+            }
+          ]
+        },
+        {
+          "key": "spots_ch3_min_threshold",
+          "label": "Min threshold",
+          "description": "",
+          "section": "Spots ch3",
+          "default": 200.0,
+          "bindings": [
+            {
+              "step": 13,
+              "param": "min_threshold"
+            }
+          ]
+        },
+        {
+          "key": "spots_ch3_min_area",
+          "label": "Min area",
+          "description": "",
+          "section": "Spots ch3",
+          "default": 5.0,
+          "bindings": [
+            {
+              "step": 13,
+              "param": "min_area"
+            }
+          ]
+        },
+        {
           "key": "colocalization_min_coloc_area",
           "label": "Min coloc area",
           "description": "",
@@ -864,11 +1580,43 @@
               "param": "min_coloc_area"
             },
             {
-              "step": 12,
+              "step": 14,
               "param": "min_coloc_area"
             },
             {
-              "step": 13,
+              "step": 15,
+              "param": "min_coloc_area"
+            },
+            {
+              "step": 16,
+              "param": "min_coloc_area"
+            },
+            {
+              "step": 17,
+              "param": "min_coloc_area"
+            },
+            {
+              "step": 18,
+              "param": "min_coloc_area"
+            },
+            {
+              "step": 19,
+              "param": "min_coloc_area"
+            },
+            {
+              "step": 20,
+              "param": "min_coloc_area"
+            },
+            {
+              "step": 21,
+              "param": "min_coloc_area"
+            },
+            {
+              "step": 22,
+              "param": "min_coloc_area"
+            },
+            {
+              "step": 23,
               "param": "min_coloc_area"
             }
           ]
@@ -880,7 +1628,7 @@
       "meta": {
         "name": "Nuclei detection",
         "shortDescription": "Nuclei detection",
-        "description": "Detects cell nuclei using rolling ball background subtraction, blurring, Triangle thresholding and watershed splitting. The class the objects get is the component's \"Nuclei\" parameter.",
+        "description": "Detects cell nuclei using rolling ball background subtraction, blurring, Triangle thresholding and watershed splitting. The class the objects get is the module's \"Nuclei\" parameter.",
         "authors": [
           {
             "fullName": "Melanie Schuerz",
@@ -1095,7 +1843,7 @@
         }
       ],
       "origin": {
-        "originComponentKey": "NUCLEI_DETECTION",
+        "originModuleKey": "NUCLEI_DETECTION",
         "library": "nuclei_detection.evacomp",
         "version": 2,
         "contentHash": "b758552d7ab503e7"
@@ -1106,7 +1854,7 @@
       "meta": {
         "name": "Cell area brightfield",
         "shortDescription": "Cell brightfield",
-        "description": "Segments the overall cell area from a brightfield image using Sobel edge detection, blurring and an automatic threshold. The class the objects get is the component's \"Cell area\" parameter.",
+        "description": "Segments the overall cell area from a brightfield image using Sobel edge detection, blurring and an automatic threshold. The class the objects get is the module's \"Cell area\" parameter.",
         "authors": [
           {
             "fullName": "Melanie Schuerz",
@@ -1339,7 +2087,7 @@
         }
       ],
       "origin": {
-        "originComponentKey": "CELL_AREA_BRIGHTFIELD",
+        "originModuleKey": "CELL_AREA_BRIGHTFIELD",
         "library": "cell_area_brightfield.evacomp",
         "version": 2,
         "contentHash": "6387ba97f8507461"
@@ -1350,7 +2098,7 @@
       "meta": {
         "name": "EV in cell detection",
         "shortDescription": "EV in cell detection",
-        "description": "Detects extracellular vesicles inside cells using median background subtraction, blurring, Li thresholding and watershed splitting. The class the objects get is the component's \"EVs in cells\" parameter.",
+        "description": "Detects extracellular vesicles inside cells using median background subtraction, blurring, Li thresholding and watershed splitting. The class the objects get is the module's \"EVs in cells\" parameter.",
         "authors": [
           {
             "fullName": "Melanie Schuerz",
@@ -1555,7 +2303,7 @@
         }
       ],
       "origin": {
-        "originComponentKey": "EV_IN_CELL_DETECTION",
+        "originModuleKey": "EV_IN_CELL_DETECTION",
         "library": "ev_in_cell_detection.evacomp",
         "version": 2,
         "contentHash": "b2b35b15b54d4320"
