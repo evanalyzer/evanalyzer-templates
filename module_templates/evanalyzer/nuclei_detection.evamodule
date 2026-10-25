@@ -71,7 +71,7 @@
       "enabled": true,
       "command": {
         "type": "CONNECTED_COMPONENTS",
-        "minSize": 0
+        "minSize": 1
       }
     },
     {
@@ -115,10 +115,10 @@
         "matchHandling": "REMOVE_ALL_CLASSES_IF_NOT_MATCH",
         "outputClass": "UNSET",
         "overlappingWith": "UNSET",
-        "minIntersectionArea": 0.0,
+        "minIntersectionSize": 0.0,
         "sizeUnit": "PIXELS",
-        "minArea": 30.0,
-        "maxArea": 2147483600.0,
+        "minSize": 30.0,
+        "maxSize": 2147483600.0,
         "minCircularity": 0.0,
         "maxCircularity": 1.0,
         "minSolidity": 0.0,
@@ -187,7 +187,7 @@
       "bindings": [
         {
           "step": 8,
-          "param": "min_area"
+          "param": "min_size"
         }
       ]
     },
@@ -200,7 +200,7 @@
       "bindings": [
         {
           "step": 8,
-          "param": "max_area"
+          "param": "max_size"
         }
       ]
     },

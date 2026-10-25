@@ -170,10 +170,10 @@
             "outputClass": "UNSET",
             "overlappingWith": "UNSET",
             "originSegmentation": [],
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 0.0,
-            "maxArea": 2147483600.0,
+            "minSize": 0.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.1,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -203,10 +203,10 @@
               "GLOBAL": 5
             },
             "originSegmentation": [],
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 0.0,
-            "maxArea": 2147483600.0,
+            "minSize": 0.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -395,7 +395,7 @@
           "enabled": true,
           "command": {
             "type": "CONNECTED_COMPONENTS",
-            "minSize": 0
+            "minSize": 1
           }
         },
         {
@@ -430,10 +430,10 @@
               "GLOBAL": 1
             },
             "overlappingWith": "UNSET",
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 4.0,
-            "maxArea": 2147483600.0,
+            "minSize": 4.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -506,7 +506,7 @@
           "bindings": [
             {
               "step": 7,
-              "param": "min_area"
+              "param": "min_size"
             }
           ]
         },
@@ -528,7 +528,7 @@
         "originModuleKey": "EV_DETECTION",
         "library": "ev_detection.evacomp",
         "version": 2,
-        "contentHash": "c30e99d5bd4fefde"
+        "contentHash": "64ba9e900cb23047"
       }
     }
   ]

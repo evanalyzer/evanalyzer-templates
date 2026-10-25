@@ -21,10 +21,11 @@ on:
   workflow_dispatch:
 
 env:
-  # The evanalyzer branch whose schema the templates must match. The
-  # .evatemplate/.evamodule format only exists on ai-plugin so far - switch
-  # back to main once ai-plugin is merged.
-  EVANALYZER_REF: ai-plugin
+  # The evanalyzer branch whose schema the templates must match. The current
+  # format (.evatemplate/.evamodule, COLOCALIZE_OBJECTS, size settings named
+  # minSize/maxSize/...) only exists on relates so far - switch back to main
+  # once relates is merged.
+  EVANALYZER_REF: relates
 
 jobs:
   check-templates:

@@ -320,7 +320,7 @@
           "id": 8,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 21
@@ -335,7 +335,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -364,7 +364,7 @@
           "id": 11,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 1
@@ -379,7 +379,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -408,7 +408,7 @@
           "id": 14,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 2
@@ -423,7 +423,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -431,7 +431,7 @@
           "id": 15,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 13
@@ -446,7 +446,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -454,7 +454,7 @@
           "id": 16,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 3
@@ -469,7 +469,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -477,7 +477,7 @@
           "id": 17,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 13
@@ -492,7 +492,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -500,7 +500,7 @@
           "id": 18,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 5
@@ -515,7 +515,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -523,7 +523,7 @@
           "id": 19,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 3
@@ -538,7 +538,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -546,7 +546,7 @@
           "id": 20,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 5
@@ -561,7 +561,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -569,7 +569,7 @@
           "id": 21,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 13
@@ -587,7 +587,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -595,7 +595,7 @@
           "id": 22,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 3
@@ -613,7 +613,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -621,7 +621,7 @@
           "id": 23,
           "enabled": true,
           "command": {
-            "type": "COLOCALIZATION",
+            "type": "COLOCALIZE_OBJECTS",
             "classesToColoc": [
               {
                 "GLOBAL": 5
@@ -639,7 +639,7 @@
             },
             "multiplicity": "MANY_TO_MANY",
             "sizeUnit": "PIXELS",
-            "minColocArea": 0.0,
+            "minColocSize": 0.0,
             "excludeClasses": []
           }
         },
@@ -661,10 +661,10 @@
               "GLOBAL": 3
             },
             "originSegmentation": [],
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 0.0,
-            "maxArea": 2147483600.0,
+            "minSize": 0.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -696,10 +696,10 @@
               "GLOBAL": 5
             },
             "originSegmentation": [],
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 0.0,
-            "maxArea": 2147483600.0,
+            "minSize": 0.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -731,10 +731,10 @@
               "GLOBAL": 13
             },
             "originSegmentation": [],
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 0.0,
-            "maxArea": 2147483600.0,
+            "minSize": 0.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -766,10 +766,10 @@
               "GLOBAL": 5
             },
             "originSegmentation": [],
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 0.0,
-            "maxArea": 2147483600.0,
+            "minSize": 0.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -801,10 +801,10 @@
               "GLOBAL": 13
             },
             "originSegmentation": [],
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 0.0,
-            "maxArea": 2147483600.0,
+            "minSize": 0.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -836,10 +836,10 @@
               "GLOBAL": 3
             },
             "originSegmentation": [],
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 0.0,
-            "maxArea": 2147483600.0,
+            "minSize": 0.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -1573,51 +1573,51 @@
           "bindings": [
             {
               "step": 8,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 11,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 14,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 15,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 16,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 17,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 18,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 19,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 20,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 21,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 22,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             },
             {
               "step": 23,
-              "param": "min_coloc_area"
+              "param": "min_coloc_size"
             }
           ]
         }
@@ -1695,7 +1695,7 @@
           "enabled": true,
           "command": {
             "type": "CONNECTED_COMPONENTS",
-            "minSize": 0
+            "minSize": 1
           }
         },
         {
@@ -1739,10 +1739,10 @@
             "matchHandling": "REMOVE_ALL_CLASSES_IF_NOT_MATCH",
             "outputClass": "UNSET",
             "overlappingWith": "UNSET",
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 30.0,
-            "maxArea": 2147483600.0,
+            "minSize": 30.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -1811,7 +1811,7 @@
           "bindings": [
             {
               "step": 8,
-              "param": "min_area"
+              "param": "min_size"
             }
           ]
         },
@@ -1824,7 +1824,7 @@
           "bindings": [
             {
               "step": 8,
-              "param": "max_area"
+              "param": "max_size"
             }
           ]
         },
@@ -1846,7 +1846,7 @@
         "originModuleKey": "NUCLEI_DETECTION",
         "library": "nuclei_detection.evacomp",
         "version": 2,
-        "contentHash": "b758552d7ab503e7"
+        "contentHash": "85b51ca28c990752"
       }
     },
     {
@@ -1951,7 +1951,7 @@
           "enabled": true,
           "command": {
             "type": "CONNECTED_COMPONENTS",
-            "minSize": 0
+            "minSize": 1
           }
         },
         {
@@ -1984,10 +1984,10 @@
             "matchHandling": "REMOVE_ALL_CLASSES_IF_NOT_MATCH",
             "outputClass": "UNSET",
             "overlappingWith": "UNSET",
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 53.2,
-            "maxArea": 2147483600.0,
+            "minSize": 53.2,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -2043,7 +2043,7 @@
           "bindings": [
             {
               "step": 11,
-              "param": "min_area"
+              "param": "min_size"
             }
           ]
         },
@@ -2056,7 +2056,7 @@
           "bindings": [
             {
               "step": 11,
-              "param": "max_area"
+              "param": "max_size"
             }
           ]
         },
@@ -2090,7 +2090,7 @@
         "originModuleKey": "CELL_AREA_BRIGHTFIELD",
         "library": "cell_area_brightfield.evacomp",
         "version": 2,
-        "contentHash": "6387ba97f8507461"
+        "contentHash": "f474fda4d2ed8a7e"
       }
     },
     {
@@ -2155,7 +2155,7 @@
           "enabled": true,
           "command": {
             "type": "CONNECTED_COMPONENTS",
-            "minSize": 0
+            "minSize": 1
           }
         },
         {
@@ -2199,10 +2199,10 @@
             "matchHandling": "REMOVE_ALL_CLASSES_IF_NOT_MATCH",
             "outputClass": "UNSET",
             "overlappingWith": "UNSET",
-            "minIntersectionArea": 0.0,
+            "minIntersectionSize": 0.0,
             "sizeUnit": "PIXELS",
-            "minArea": 3.0,
-            "maxArea": 2147483600.0,
+            "minSize": 3.0,
+            "maxSize": 2147483600.0,
             "minCircularity": 0.0,
             "maxCircularity": 1.0,
             "minSolidity": 0.0,
@@ -2271,7 +2271,7 @@
           "bindings": [
             {
               "step": 7,
-              "param": "min_area"
+              "param": "min_size"
             }
           ]
         },
@@ -2284,7 +2284,7 @@
           "bindings": [
             {
               "step": 7,
-              "param": "max_area"
+              "param": "max_size"
             }
           ]
         },
@@ -2306,7 +2306,7 @@
         "originModuleKey": "EV_IN_CELL_DETECTION",
         "library": "ev_in_cell_detection.evacomp",
         "version": 2,
-        "contentHash": "b2b35b15b54d4320"
+        "contentHash": "578437424a2a4b5b"
       }
     }
   ]
