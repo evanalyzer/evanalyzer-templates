@@ -12,7 +12,7 @@
       }
     ],
     "creationTime": "2026-10-20T17:25:55.830699113Z",
-    "version": 2,
+    "version": 3,
     "category": "cell",
     "tags": [
       "cell"
@@ -136,7 +136,7 @@
         "overlappingWith": "UNSET",
         "minIntersectionSize": 0.0,
         "sizeUnit": "PIXELS",
-        "minSize": 53.2,
+        "minSize": 2000.0,
         "maxSize": 2147483600.0,
         "minCircularity": 0.0,
         "maxCircularity": 1.0,
@@ -189,7 +189,7 @@
       "label": "Min area",
       "description": "",
       "section": "Filter",
-      "default": 53.2,
+      "default": 2000,
       "bindings": [
         {
           "step": 11,

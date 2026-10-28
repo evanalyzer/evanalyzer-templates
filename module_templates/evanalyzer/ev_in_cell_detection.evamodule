@@ -12,7 +12,7 @@
       }
     ],
     "creationTime": "2026-10-20T17:24:51.268492007Z",
-    "version": 2,
+    "version": 3,
     "category": "Spot Detection",
     "tags": [
       "spot"
@@ -107,7 +107,7 @@
         "overlappingWith": "UNSET",
         "minIntersectionSize": 0.0,
         "sizeUnit": "PIXELS",
-        "minSize": 3.0,
+        "minSize": 5.0,
         "maxSize": 2147483600.0,
         "minCircularity": 0.0,
         "maxCircularity": 1.0,
@@ -173,7 +173,7 @@
       "label": "Min area",
       "description": "",
       "section": "Filter",
-      "default": 3,
+      "default": 5,
       "bindings": [
         {
           "step": 7,
