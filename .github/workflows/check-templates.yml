@@ -21,11 +21,8 @@ on:
   workflow_dispatch:
 
 env:
-  # The evanalyzer branch whose schema the templates must match. The current
-  # format (.evatemplate/.evamodule, COLOCALIZE_OBJECTS, size settings named
-  # minSize/maxSize/...) only exists on relates so far - switch back to main
-  # once relates is merged.
-  EVANALYZER_REF: relates
+  # The evanalyzer branch whose schema the templates must match.
+  EVANALYZER_REF: main
 
 jobs:
   check-templates:
